@@ -47,8 +47,8 @@ public class funderTest {
     @Test public void getFundsCommitted() throws Exception { //TODO
         //Setup arrays
         String[] catRestrictions = new String[]{"Cat1", "Cat2"};
-        String[] categories1 = new String[]{"Cat2", "Cat3"};
-        String[] categories2 = new String[]{"Cat4", "Cat5"};
+        String category1 = "Cat2";
+        String category2 = "Cat4";
 
         //Initialize funder
         funder funder1 = new funder("funder1", 1, makeDate("2019-03-02"));
@@ -57,13 +57,13 @@ public class funderTest {
         //Initialize expense array
         expense[] expenses = new expense[]{
             //Scenario: has cat restriction
-            new expense("expense1", 1, 220, categories1, makeDate("2019-01-01"), 1),
+            new expense("expense1", 1, 220, category1, makeDate("2019-01-01"), 1),
             //Scenario: not a match for funder
-            new expense("expense2", 2, 220, categories2, makeDate("2019-01-01"), 1),
+            new expense("expense2", 2, 220, category2, makeDate("2019-01-01"), 1),
             //Scenario: meets criteria
-            new expense("expense3", 1, 220, categories2, makeDate("2019-01-01"), 1),
+            new expense("expense3", 1, 220, category2, makeDate("2019-01-01"), 1),
             //Scenario: falls outside of funder date state
-            new expense("expense4", 1, 220, categories2, makeDate("2019-05-01"), 1)
+            new expense("expense4", 1, 220, category2, makeDate("2019-05-01"), 1)
         };
 
         //get funds committed
@@ -105,8 +105,8 @@ public class funderTest {
     @Test public void getFundsAvail() throws Exception {
         //Setup arrays
         String[] catRestrictions = new String[]{"Cat1", "Cat2"};
-        String[] categories1 = new String[]{"Cat2", "Cat3"};
-        String[] categories2 = new String[]{"Cat4", "Cat5"};
+        String category1 = "Cat2";
+        String category2 = "Cat4";
 
         //Initialize funder
         funder funder1 = new funder("funder1", 1, makeDate("2019-03-02"));
@@ -122,13 +122,13 @@ public class funderTest {
         //Initialize expense array
         expense[] expenses = new expense[]{
                 //Scenario: has cat restriction
-                new expense("expense1", 1, 220, categories1, makeDate("2019-01-01"), 1),
+                new expense("expense1", 1, 220, category1, makeDate("2019-01-01"), 1),
                 //Scenario: not a match for funder
-                new expense("expense2", 2, 220, categories2, makeDate("2019-01-01"), 1),
+                new expense("expense2", 2, 220, category2, makeDate("2019-01-01"), 1),
                 //Scenario: meets criteria
-                new expense("expense3", 1, 220, categories2, makeDate("2019-01-01"), 1),
+                new expense("expense3", 1, 220, category2, makeDate("2019-01-01"), 1),
                 //Scenario: falls outside of funder date state
-                new expense("expense4", 1, 220, categories2, makeDate("2019-05-01"), 1)
+                new expense("expense4", 1, 220, category2, makeDate("2019-05-01"), 1)
         };
 
         int expected = 780;

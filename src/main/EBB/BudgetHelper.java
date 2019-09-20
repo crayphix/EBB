@@ -43,20 +43,18 @@ public class BudgetHelper {
     /**
      * Compare arrays to see if they contain and single string that is the same
      * Return true if they do
-     * @param arr1
-     * @param arr2
+     * @param str
+     * @param arr
      * @return
      */
-    public static boolean hasSameString(String[] arr1, String[] arr2)throws Exception{
+    public static boolean containsString(String str, String[] arr)throws Exception{
         try{
-            for(String str1: arr1){
-                for(String str2: arr2){
-                    if(str1.equals(str2)){
+            for(String str2: arr){
+                    if(str2.equals(str)){
                         return true;
                     }
                 }
-            }
-        } catch(Exception ex){}
+            }catch(Exception ex){}
         return false;
     }
 }

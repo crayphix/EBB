@@ -23,23 +23,22 @@ public class BudgetHelperTest {
         Assert.assertEquals("test3",arr[2]);
     }
 
-    @Test public void testHasSameString() throws Exception{
+    @Test public void testContainsString() throws Exception{
         //Setup arrays
         String[] catRestrictions = new String[]{"Cat1", "Cat2"};
-        String[] categories = new String[]{"Cat2", "Cat3"};
+        String category = "Cat2";
 
         //Initialize funder
         funder funder1 = new funder("funder1",1, makeDate("2019-03-02"));
         funder1.setFundCatRestrictions(catRestrictions);
 
         //Initialize expense
-        expense expense1 = new expense("expense1", 1, 220, categories, makeDate("2019-01-01"), 1);
+        expense expense1 = new expense("expense1", 1, 220, category, makeDate("2019-01-01"), 1);
 
         //Compare
         try {
-            boolean actual = hasSameString(funder1.getFundCatRestrictions(), expense1.getFundCat());
+            boolean actual = containsString(expense1.getCategory(), funder1.getFundCatRestrictions());
             Assert.assertTrue(actual);
         }catch(Exception ex){}
-
     }
 }

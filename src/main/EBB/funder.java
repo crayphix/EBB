@@ -1,8 +1,7 @@
 package main.EBB;
 import java.util.Date;
 
-import static main.EBB.BudgetHelper.add;
-import static main.EBB.BudgetHelper.hasSameString;
+import static main.EBB.BudgetHelper.*;
 
 /**
  * Funder object that tracks the following fields
@@ -82,7 +81,7 @@ public class funder {
         for (expense expense: expenses) {
             if (expense.getFunderId() == this.id &&
                     //check to see if categories restrict expense assignment
-                    !hasSameString(expense.getFundCat(), this.fundCatRestrictions) &&
+                    !containsString(expense.getCategory(), this.fundCatRestrictions) &&
                     (expense.getExpDate().before(state) ||
                             expense.getExpDate().equals(state))) {
                 fundsCommitted += expense.getExpAmt();

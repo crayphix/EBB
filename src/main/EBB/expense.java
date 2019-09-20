@@ -15,7 +15,7 @@ public class expense {
     private String name;
     private int funderId;
     private int expAmt;
-    private String[] fundCats;
+    private String category;
     private Date expDate;
     private int id;
 
@@ -29,15 +29,15 @@ public class expense {
      * @param name
      * @param funderId
      * @param expAmt
-     * @param fundCats
+     * @param category
      * @param expDate
      * @param id
      */
-    public expense(String name, int funderId, int expAmt, String[] fundCats, Date expDate, int id) {
+    public expense(String name, int funderId, int expAmt, String category, Date expDate, int id) {
         this.name = name;
         this.funderId = funderId;
         this.expAmt = expAmt;
-        this.fundCats = fundCats;
+        this.category = category;
         this.expDate = expDate;
         this.id = id;
     }
@@ -82,19 +82,13 @@ public class expense {
      * return funding category of expense
      * @return
      */
-    public String[] getFundCat() { return fundCats; }
+    public String getCategory() { return category; }
 
     /**
      * set funding category(s) of expense
-     * @param fundCats
+     * @param category
      */
-    public void setFundCat(String[] fundCats) { this.fundCats = fundCats; }
-
-    /**
-     * Add funding category funding categories array
-     * @param fundcat
-     */
-    public void addFundCat(String fundcat){this.fundCats = add(fundCats, fundcat); }
+    public void setCategory(String category) { this.category = category; }
 
     /**
      * Return date expense is posted
@@ -122,11 +116,11 @@ public class expense {
 
     @Override
     public String toString() {
-       return ("expense name: " + name + '\n' +
-                " funderId: " + funderId + '\n' +
-                " expense amount: " + expAmt + '\n' +
-                " funding Categories: " + String.join(", ", fundCats) + '\n' +
-                " expense date: " + expDate + '\n' +
+       return ("expense name: " + name +
+                " funderId: " + funderId +
+                " expense amount: " + expAmt +
+                " funding Category: " + category +
+                " expense date: " + expDate +
                 " expense id: " + id);
     }
 }
