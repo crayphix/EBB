@@ -1,7 +1,6 @@
 package main.EBB;
 import java.util.Date;
 
-import static main.EBB.BudgetHelper.add;
 
 /**
  * Expense object that tracks the following fields

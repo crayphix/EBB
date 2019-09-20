@@ -13,7 +13,7 @@ public class BudgetHelperTest {
 
     @Test public void testMakeDate() {
         Date date1 = makeDate("2019-01-01");
-        Assert.assertTrue(date1 instanceof Date);
+        Assert.assertNotNull(date1);
     }
 
     @Test public void testAdd() {
@@ -23,7 +23,7 @@ public class BudgetHelperTest {
         Assert.assertEquals("test3",arr[2]);
     }
 
-    @Test public void testContainsString() throws Exception{
+    @Test public void testContainsString() {
         //Setup arrays
         String[] catRestrictions = new String[]{"Cat1", "Cat2"};
         String category = "Cat2";
@@ -39,6 +39,6 @@ public class BudgetHelperTest {
         try {
             boolean actual = containsString(expense1.getCategory(), funder1.getFundCatRestrictions());
             Assert.assertTrue(actual);
-        }catch(Exception ex){}
+        }catch(Exception ex){System.out.println("Contains String error");}
     }
 }

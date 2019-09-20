@@ -35,8 +35,7 @@ public class BudgetHelper {
         String[] tempArr = new String[arr.length+elements.length];
         System.arraycopy(arr, 0, tempArr, 0, arr.length);
 
-        for(int i=0; i < elements.length; i++)
-            tempArr[arr.length+i] = elements[i];
+        System.arraycopy(elements, 0, tempArr, arr.length, elements.length);
         return tempArr;
     }
 
@@ -47,14 +46,14 @@ public class BudgetHelper {
      * @param arr
      * @return
      */
-    public static boolean containsString(String str, String[] arr)throws Exception{
+    public static boolean containsString(String str, String[] arr){
         try{
             for(String str2: arr){
                     if(str2.equals(str)){
                         return true;
                     }
                 }
-            }catch(Exception ex){}
+            }catch(Exception ex){ex.printStackTrace();}
         return false;
     }
 }
